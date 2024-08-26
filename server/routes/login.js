@@ -1,8 +1,9 @@
 import User from "../model/login.js";
+import passport from "passport";
 import jwt from 'jsonwebtoken';
 import express from 'express';
 import bcrypt from 'bcrypt';
-
+// import passport from './validation/passport.js';
 const router = express.Router();
 router.post('/user', async (req, res) => {
    const { name, password, email } = req.body;
@@ -52,4 +53,7 @@ router.post('/login',async(req,res)=>{
       console.log(error.message);
    }
 })
+router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
+   res.json({ msg: "You have accessed a protected route!", user: req.user });
+});
 export default router;

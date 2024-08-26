@@ -1,7 +1,9 @@
 import image from '../assets/try.svg'
+import Navbar from './Navbar'
 const Hero=()=>{
     return(
-        
+      <div>
+        <Navbar />
         <main className="bg-gray-100 py-20 px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
@@ -22,7 +24,7 @@ const Hero=()=>{
           </div>
         </div>
       </main>
-      
+      </div>
     )
 }
 
